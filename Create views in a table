@@ -1,0 +1,34 @@
+-- Create Views in SQL
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Department VARCHAR(30),
+    Mark INT
+);
+
+INSERT INTO Student VALUES
+(1, 'Arun', 'AIML', 85),
+(2, 'Priya', 'CSE', 75),
+(3, 'Kumar', 'IT', 60),
+(4, 'Anu', 'AIML', 90);
+
+-- Create a View
+CREATE VIEW Student_View AS
+SELECT Student_ID, Name, Department, Mark
+FROM Student;
+
+-- Display the View
+SELECT * FROM Student_View;
+
+-- Create another View for AIML students
+CREATE VIEW AIML_Students AS
+SELECT Student_ID, Name, Mark
+FROM Student
+WHERE Department = 'AIML';
+
+-- Display the second View
+SELECT * FROM AIML_Students;
+
+-- Delete a View
+DROP VIEW AIML_Students;
