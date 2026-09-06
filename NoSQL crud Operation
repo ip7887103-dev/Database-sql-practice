@@ -1,0 +1,49 @@
+// NoSQL CRUD Operations using MongoDB
+
+// Select Database
+use StudentDB;
+
+// CREATE - Insert documents
+db.students.insertMany([
+    {
+        student_id: 1,
+        name: "Arun",
+        department: "AIML",
+        mark: 85
+    },
+    {
+        student_id: 2,
+        name: "Priya",
+        department: "CSE",
+        mark: 75
+    },
+    {
+        student_id: 3,
+        name: "Kumar",
+        department: "IT",
+        mark: 80
+    }
+]);
+
+// READ - Display documents
+db.students.find();
+
+// READ with condition
+db.students.find({ department: "AIML" });
+
+// UPDATE - Update a document
+db.students.updateOne(
+    { student_id: 2 },
+    { $set: { mark: 90 } }
+);
+
+// Display after update
+db.students.find();
+
+// DELETE - Delete a document
+db.students.deleteOne(
+    { student_id: 3 }
+);
+
+// Display after delete
+db.students.find();
