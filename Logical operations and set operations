@@ -1,0 +1,25 @@
+CREATE TABLE Student (
+    ID INT,
+    Name VARCHAR(50),
+    Department VARCHAR(20),
+    Age INT,
+    Mark INT
+);
+
+INSERT INTO Student VALUES
+(1, 'Arun', 'AIML', 20, 85),
+(2, 'Priya', 'CSE', 21, 75),
+(3, 'Kumar', 'IT', 19, 60),
+(4, 'Anu', 'AIML', 22, 90);
+
+-- AND
+SELECT * FROM Student
+WHERE Department = 'AIML' AND Mark > 80;
+
+-- OR
+SELECT * FROM Student
+WHERE Department = 'AIML' OR Mark > 80;
+
+-- NOT
+SELECT * FROM Student
+WHERE NOT Department = 'CSE';
