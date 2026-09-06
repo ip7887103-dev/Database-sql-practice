@@ -1,0 +1,40 @@
+-- Nested Queries and Subqueries
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Department VARCHAR(30),
+    Mark INT
+);
+
+INSERT INTO Student VALUES
+(1, 'Arun', 'AIML', 85),
+(2, 'Priya', 'CSE', 75),
+(3, 'Kumar', 'IT', 60),
+(4, 'Anu', 'AIML', 90),
+(5, 'Ravi', 'CSE', 80);
+
+-- 1. Subquery using MAX()
+SELECT Name, Mark
+FROM Student
+WHERE Mark = (SELECT MAX(Mark) FROM Student);
+
+-- 2. Subquery using AVG()
+SELECT Name, Mark
+FROM Student
+WHERE Mark > (SELECT AVG(Mark) FROM Student);
+
+-- 3. Nested query
+SELECT Name, Department
+FROM Student
+WHERE Department IN
+(
+    SELECT Department
+    FROM Student
+    WHERE Mark > 85
+);
+
+-- 4. Subquery using MIN()
+SELECT Name, Mark
+FROM Student
+WHERE Mark = (SELECT MIN(Mark) FROM Student);
